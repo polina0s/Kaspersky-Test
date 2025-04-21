@@ -1,4 +1,4 @@
-import { Card, Tag, Tooltip, Typography } from 'antd'
+import { Card, Divider, Tag, Tooltip, Typography } from 'antd'
 import './NewsCard.css'
 import { IData_SnippetNews } from './types/data'
 
@@ -92,6 +92,45 @@ export const NewsCard = ({ data }: NewsCardProps) => {
           </Typography.Link>
         )}
       </div>
+
+      {data.DUPLICATES && data.DUPLICATES.length > 0 && (
+        <div className="duplicates">
+          <Divider className="duplicates-divider" />
+          <Typography.Text className="duplicates-title" strong>
+            Duplicates: {data.DUPLICATES.length}
+          </Typography.Text>
+
+          {data.DUPLICATES.map((dup, index) => (
+            <div key={index} className="duplicate-item">
+              <div className="duplicates-header">
+                <span className="duplicates-date">
+                  {new Date(dup.DP).toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric',
+                  })}
+                </span>
+                <span className="duplicates-reach">
+                  {dup.REACH.toLocaleString()} Top Reach
+                </span>
+              </div>
+              <Typography.Link
+                href={dup.URL}
+                target="_blank"
+                className="duplicates-title"
+              >
+                {dup.TI}
+              </Typography.Link>
+              <div className="duplicates-meta">
+                <img src={dup.FAV} alt="favicon" className="favicon" />
+                <span className="domain">{dup.DOM}</span>
+                <span className="country">{dup.CNTR}</span>
+                <span className="authors">{dup.AU.join(', ')}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </Card>
   )
 }

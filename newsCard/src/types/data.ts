@@ -16,6 +16,7 @@ export interface IData_SnippetNews {
   TRAFFIC: IData_TrafficItem[] // траффик из стран
   FAV: string // ссылка на иконку
   HIGHLIGHTS: string[] // блоки содержимого новости с ключевыми словами
+  DUPLICATES?: IData_SnippetNews[]
 }
 
 // тэг для сниппета

@@ -33,11 +33,11 @@
   font-size: 13px;
   color: #ccc;
   margin-bottom: 10px;
-}
 
-.favicon {
-  width: 16px;
-  height: 16px;
+  .favicon {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .lang,
@@ -78,4 +78,51 @@ p {
 .show-more {
   margin-left: auto;
   font-size: 12px;
+}
+
+.duplicates {
+  margin-top: 10px;
+}
+
+.duplicates-divider {
+  margin: 10px 0;
+}
+
+.duplicates-title {
+  font-size: 13;
+  color: #aaa;
+}
+
+.duplicate-item {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #1a1a1a;
+  border-radius: 6px;
+}
+
+.duplicates-header {
+  font-size: 11px;
+  color: #888;
+  display: flex;
+  justify-content: space-between;
+}
+
+.duplicates-title {
+  font-size: 13px;
+  color: #2f8af5;
+  display: inline-block;
+  margin: 4px 0;
+}
+
+.duplicates-meta {
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  gap: 6px;
+  color: #aaa;
+
+  .favicon {
+    width: 14px;
+    height: 14px;
+  }
 }
