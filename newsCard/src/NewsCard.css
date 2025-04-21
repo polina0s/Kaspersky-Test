@@ -1,6 +1,27 @@
-.snippet-news-card {
+.card {
   background: #1d1f2b;
   color: #fff;
   padding: 16px;
   border-radius: 8px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.meta {
+  display: flex;
+  gap: 12px;
+  color: #bbb;
+}
+
+.title {
+  color: #40a9ff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
 }

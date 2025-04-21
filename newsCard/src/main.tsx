@@ -1,10 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import { NewsCard } from './NewsCard'
+import { news } from './mocks/news'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <NewsCard></NewsCard>
+    <NewsCard data={news}></NewsCard>
   </StrictMode>,
 )

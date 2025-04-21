@@ -1,4 +1,4 @@
-import { Card } from 'antd'
+import { Card, Tag, Tooltip } from 'antd'
 import './NewsCard.css'
 import { IData_SnippetNews } from './types/data'
 
@@ -12,7 +12,23 @@ export const NewsCard = ({ data }: NewsCardProps) => {
 
   return (
     <Card className="card">
-      <div className="header"></div>
+      <div className="header">
+        <div className="meta">
+          <span>{date}</span>
+          <span className="reach">{data.REACH.toLocaleString()} Reach</span>
+          {topTraffic && (
+            <Tooltip
+              title={data.TRAFFIC.map(
+                (t) => `${t.value}: ${Math.round(t.count * 100)}%`,
+              ).join(', ')}
+            >
+              <span className="traffic">Top Traffic: {topTraffic.value}</span>
+            </Tooltip>
+          )}
+        </div>
+        <Tag color="green">{data.SENT}</Tag>
+      </div>
+
       <div className="description"></div>
     </Card>
   )
