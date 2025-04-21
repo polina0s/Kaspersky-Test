@@ -25,3 +25,22 @@
   margin-bottom: 8px;
   display: block;
 }
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.favicon {
+  width: 16px;
+  height: 16px;
+}
+
+.lang,
+.author {
+  color: #999;
+}

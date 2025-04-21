@@ -29,7 +29,9 @@ export const NewsCard = ({ data }: NewsCardProps) => {
         <Tag color="green">{data.SENT}</Tag>
       </div>
 
-      <div className="description"></div>
+      <a href={data.URL} className="title" target="_blank" rel="noreferrer">
+        {data.TI}
+      </a>
     </Card>
   )
 }
