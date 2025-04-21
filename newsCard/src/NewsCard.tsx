@@ -32,6 +32,17 @@ export const NewsCard = ({ data }: NewsCardProps) => {
       <a href={data.URL} className="title" target="_blank" rel="noreferrer">
         {data.TI}
       </a>
+
+      <div className="info">
+        <img src={data.FAV} alt="favicon" className="favicon" />
+        <span>{data.DOM}</span>
+        <span className="lang">
+          {data.CNTR} | {data.LANG.toUpperCase()}
+        </span>
+        {data.AU.length > 0 && (
+          <span className="author">by {data.AU.join(', ')}</span>
+        )}
+      </div>
     </Card>
   )
 }
