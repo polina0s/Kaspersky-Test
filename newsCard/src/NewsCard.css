@@ -44,3 +44,22 @@
 .author {
   color: #999;
 }
+
+.highlights {
+  font-size: 13px;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+p {
+  margin-bottom: 0.4em;
+}
+
+.highlight {
+  background-color: #1677ff;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: 500;
+  white-space: nowrap;
+}

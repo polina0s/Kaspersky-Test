@@ -11,7 +11,7 @@ export const NewsCard = ({ data }: NewsCardProps) => {
   const topTraffic = data.TRAFFIC[0]
 
   const renderHighlight = (text: string): React.ReactNode[] => {
-    const parts: React.ReactNode[] = []
+    const highlight: React.ReactNode[] = []
     const regex = /<kw>(.*?)<\/kw>/g
     let lastIndex = 0
     let match: RegExpExecArray | null
@@ -21,10 +21,10 @@ export const NewsCard = ({ data }: NewsCardProps) => {
       const start = match.index
 
       if (start > lastIndex) {
-        parts.push(text.slice(lastIndex, start))
+        highlight.push(text.slice(lastIndex, start))
       }
 
-      parts.push(
+      highlight.push(
         <span key={start} className="highlight">
           {keyword}
         </span>,
@@ -34,10 +34,10 @@ export const NewsCard = ({ data }: NewsCardProps) => {
     }
 
     if (lastIndex < text.length) {
-      parts.push(text.slice(lastIndex))
+      highlight.push(text.slice(lastIndex))
     }
 
-    return parts
+    return highlight
   }
 
   return (
@@ -72,6 +72,12 @@ export const NewsCard = ({ data }: NewsCardProps) => {
         {data.AU.length > 0 && (
           <span className="author">by {data.AU.join(', ')}</span>
         )}
+      </div>
+
+      <div className="highlights">
+        {data.HIGHLIGHTS.map((highlight, index) => (
+          <p key={index}>{renderHighlight(highlight)}</p>
+        ))}
       </div>
     </Card>
   )
