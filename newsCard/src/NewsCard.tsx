@@ -1,4 +1,4 @@
-import { Card, Divider, Tag, Tooltip, Typography } from 'antd'
+import { Card, Tag, Tooltip, Typography } from 'antd'
 import './NewsCard.css'
 import { IData_SnippetNews } from './types/data'
 
@@ -78,6 +78,19 @@ export const NewsCard = ({ data }: NewsCardProps) => {
         {data.HIGHLIGHTS.map((highlight, index) => (
           <p key={index}>{renderHighlight(highlight)}</p>
         ))}
+      </div>
+
+      <div className="tags">
+        {data.KW.slice(0, 6).map((tag) => (
+          <Tag key={tag.value}>
+            {tag.value} <span className="count">{tag.count}</span>
+          </Tag>
+        ))}
+        {data.KW.length > 6 && (
+          <Typography.Link className="show-more">
+            Show All +{data.KW.length - 6}
+          </Typography.Link>
+        )}
       </div>
     </Card>
   )
