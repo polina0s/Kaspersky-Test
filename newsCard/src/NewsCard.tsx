@@ -1,4 +1,4 @@
-import { Card, Tag, Tooltip } from 'antd'
+import { Card, Divider, Tag, Tooltip, Typography } from 'antd'
 import './NewsCard.css'
 import { IData_SnippetNews } from './types/data'
 
@@ -9,6 +9,36 @@ interface NewsCardProps {
 export const NewsCard = ({ data }: NewsCardProps) => {
   const date = new Date(data.DP).toLocaleDateString()
   const topTraffic = data.TRAFFIC[0]
+
+  const renderHighlight = (text: string): React.ReactNode[] => {
+    const parts: React.ReactNode[] = []
+    const regex = /<kw>(.*?)<\/kw>/g
+    let lastIndex = 0
+    let match: RegExpExecArray | null
+
+    while ((match = regex.exec(text)) !== null) {
+      const [fullMatch, keyword] = match
+      const start = match.index
+
+      if (start > lastIndex) {
+        parts.push(text.slice(lastIndex, start))
+      }
+
+      parts.push(
+        <span key={start} className="highlight">
+          {keyword}
+        </span>,
+      )
+
+      lastIndex = start + fullMatch.length
+    }
+
+    if (lastIndex < text.length) {
+      parts.push(text.slice(lastIndex))
+    }
+
+    return parts
+  }
 
   return (
     <Card className="card">
