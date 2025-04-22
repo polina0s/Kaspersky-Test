@@ -1,6 +1,6 @@
 import { Card, Divider, Tag, Tooltip, Typography } from 'antd'
 import './NewsCard.css'
-import { IData_SnippetNews } from './types/data'
+import { IData_SnippetNews } from './types/news'
 
 interface NewsCardProps {
   data: IData_SnippetNews
