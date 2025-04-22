@@ -1,0 +1,119 @@
+.card {
+  background: #1d1f2b;
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.meta {
+  display: flex;
+  gap: 12px;
+  color: #bbb;
+}
+
+.title {
+  color: #40a9ff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 10px;
+
+  .favicon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.lang,
+.author {
+  color: #999;
+}
+
+.highlights {
+  font-size: 13px;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+p {
+  margin-bottom: 0.4em;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.count {
+  color: #aaa;
+  margin-left: 4px;
+}
+
+.show-more {
+  margin-left: auto;
+  font-size: 12px;
+}
+
+.duplicates {
+  margin-top: 10px;
+}
+
+.duplicates-divider {
+  margin: 10px 0;
+}
+
+.duplicates-title {
+  font-size: 13;
+  color: #aaa;
+}
+
+.duplicate-item {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #1a1a1a;
+  border-radius: 6px;
+}
+
+.duplicates-header {
+  font-size: 11px;
+  color: #888;
+  display: flex;
+  justify-content: space-between;
+}
+
+.duplicates-title {
+  font-size: 13px;
+  color: #2f8af5;
+  display: inline-block;
+  margin: 4px 0;
+}
+
+.duplicates-meta {
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  gap: 6px;
+  color: #aaa;
+
+  .favicon {
+    width: 14px;
+    height: 14px;
+  }
+}

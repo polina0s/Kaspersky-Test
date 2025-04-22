@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { NewsCard } from './NewsCard'
 import { news } from './mocks/news'
+import { NewsCard } from './components/NewsCard'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
