@@ -1,7 +1,7 @@
 import { Card, Divider, Tag, Tooltip, Typography } from 'antd'
 import { IData_SnippetNews } from '../../types/news'
 import { Highlights } from '../Highlights'
-import { formatDate } from '../../utils'
+import { formatDate, formatReach } from '../../utils'
 import './NewsCard.css'
 
 interface NewsCardProps {
@@ -11,20 +11,24 @@ interface NewsCardProps {
 export const NewsCard = ({ data }: NewsCardProps) => {
   const date = data.DP
   const topTraffic = data.TRAFFIC[0]
+  const reach = data.REACH
 
   return (
     <Card className="card">
       <div className="header">
         <div className="meta">
           <span>{formatDate(date)}</span>
-          <span className="reach">{data.REACH.toLocaleString()} Reach</span>
+          <span className="reach">{formatReach(reach)} Reach</span>
           {topTraffic && (
             <Tooltip
               title={data.TRAFFIC.map(
-                (t) => `${t.value}: ${Math.round(t.count * 100)}%`,
+                (t) => `${t.value} ${Math.round(t.count * 100)}%`,
               ).join(', ')}
             >
-              <span className="traffic">Top Traffic: {topTraffic.value}</span>
+              <span className="traffic">
+                Top Traffic: {topTraffic.value}{' '}
+                {Math.round(topTraffic.count * 100)}%
+              </span>
             </Tooltip>
           )}
         </div>
@@ -75,15 +79,16 @@ export const NewsCard = ({ data }: NewsCardProps) => {
           {data.DUPLICATES.map((dup, index) => (
             <div key={index} className="duplicate-item">
               <div className="duplicates-header">
-                <span className="duplicates-date">
+                {/* <span className="duplicates-date">
                   {new Date(dup.DP).toLocaleDateString('en-GB', {
                     day: '2-digit',
                     month: 'short',
                     year: 'numeric',
                   })}
-                </span>
+                </span> */}
+                <span className="duplicates-date">{formatDate(dup.DP)}</span>
                 <span className="duplicates-reach">
-                  {dup.REACH.toLocaleString()} Top Reach
+                  {formatReach(dup.REACH)} Top Reach
                 </span>
               </div>
               <Typography.Link

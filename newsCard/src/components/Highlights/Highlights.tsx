@@ -1,3 +1,5 @@
+import './Highlights.css'
+
 export const Highlights = (text: string): React.ReactNode[] => {
   const highlight: React.ReactNode[] = []
   const regex = /<kw>(.*?)<\/kw>/g
