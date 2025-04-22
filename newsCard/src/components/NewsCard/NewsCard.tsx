@@ -79,13 +79,6 @@ export const NewsCard = ({ data }: NewsCardProps) => {
           {data.DUPLICATES.map((dup, index) => (
             <div key={index} className="duplicate-item">
               <div className="duplicates-header">
-                {/* <span className="duplicates-date">
-                  {new Date(dup.DP).toLocaleDateString('en-GB', {
-                    day: '2-digit',
-                    month: 'short',
-                    year: 'numeric',
-                  })}
-                </span> */}
                 <span className="duplicates-date">{formatDate(dup.DP)}</span>
                 <span className="duplicates-reach">
                   {formatReach(dup.REACH)} Top Reach
